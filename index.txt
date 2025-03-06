@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Proposal</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+        }
+        h1 {
+            color: #333;
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+        p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .heart {
+            font-size: 4em;
+            color: #d63384;
+            animation: heartbeat 1.5s infinite;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 1em;
+            color: #ffffff;
+            background-color: #d63384;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #c1276a;
+        }
+        input {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 300px;
+        }
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="name-input">
+        <h1>Enter Your Name</h1>
+        <input type="text" id="name" placeholder="Your Name">
+        <button class="button" onclick="checkName()">Submit</button>
+    </div>
+    <div class="container" id="proposal" style="display: none;">
+        <h1>Will You Be Mine?</h1>
+        <p>You make my world so beautiful, and I can't imagine my life without you. Will you be my forever?</p>
+        <div class="heart">&#10084;</div>
+        <a href="#home" class="button" onclick="showHome()">Back to Home</a>
+    </div>
+    <div class="container" id="different-name" style="display: none;">
+        <h1>Hello!</h1>
+        <p>You are a great person in my life, and I truly appreciate you. Thank you for being wonderful!</p>
+        <a href="#home" class="button" onclick="showHome()">Back to Home</a>
+    </div>
+    <script>
+        function checkName() {
+            var name = document.getElementById('name').value;
+            if (name.toLowerCase() === 'manpreet') {
+                document.getElementById('name-input').style.display = 'none';
+                document.getElementById('proposal').style.display = 'block';
+            } else {
+                document.getElementById('name-input').style.display = 'none';
+                document.getElementById('different-name').style.display = 'block';
+            }
+        }
+
+        function showHome() {
+            document.getElementById('proposal').style.display = 'none';
+            document.getElementById('different-name').style.display = 'none';
+            document.getElementById('name-input').style.display = 'block';
+            document.getElementById('name').value = '';
+        }
+    </script>
+</body>
+</html>
